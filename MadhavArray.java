@@ -39,9 +39,32 @@ public class MadhavArray {
         
         
     }
-    
+     static int isMadhavArray(int[] a) {
+        boolean correctLength = false;
+        int n = 2;
+        double checkLength = 1;
+        while (checkLength <= a.length) {
+            checkLength = n * (n + 1) / 2.0;
+            if (checkLength == a.length) {
+                correctLength = true;
+                break;
+            }
+            n++;
+        }
+        if (!correctLength) return 0;
+        int index = 1;
+        for (int i = 2; index < a.length; i++) {
+            int sum = 0;
+            for (int j = 1; j <= i; j++) {
+                sum += a[index];
+                index++;
+            }
+            if (sum != a[0]) return 0;
+        }
+        return 1;
+    }
   
-
+/*
     static int isMadhavArray(int[] a){
         
         int isMadhav = 1;
@@ -85,4 +108,5 @@ public class MadhavArray {
         
         return isMadhav;
      }
+}*/
 }

@@ -13,7 +13,7 @@ public class Porcupine {
         int result = findPorcupineNumber(2);
         System.out.println(result);
         
-         result = findPorcupineNumber(138);
+         result = findPorcupineNumber(600);
         System.out.println(result);
         
          result = findPorcupineNumber(139);
@@ -26,8 +26,15 @@ public class Porcupine {
         int max = Integer.MAX_VALUE;
         boolean isPorcupine = false;
         n++;
-        while(n<max){
-            if(isPorcupine){
+        while(n>0){
+            if(!isPorcupine){
+                 if(isPrime(n) ==1 ){
+                    if(n%10 == 9){
+                        isPorcupine = true;
+                        porcupine = n;
+                    }
+                }
+            }else{
                 if(isPrime(n)==1){
                     if(n%10 == 9){
                         break;
@@ -35,13 +42,7 @@ public class Porcupine {
                         isPorcupine = false;
                     }
                 }
-            }else{
-                if(isPrime(n) ==1 ){
-                    if(n%10 == 9){
-                        isPorcupine = true;
-                        porcupine = n;
-                    }
-                }
+               
                 
             }
             

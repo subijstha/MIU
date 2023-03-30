@@ -20,7 +20,7 @@ public class SquarePair {
         
     }
     
-    static int countSquarePairs(int[] a){
+    /*static int countSquarePairs(int[] a){
         int countPairs = 0;
         
         
@@ -55,5 +55,29 @@ public class SquarePair {
         }
         
         return value;
+    }*/
+    
+    static int countSquarePairs(int[] a){
+        int count =0;
+        for(int i=0; i<a.length; i++){
+            if(a[i]>0){
+                for(int j=0; j<a.length; j++){
+                    if(a[i]<a[j]){
+                        if(isPerfectSquare(a[i] + a[j])){
+                            count++;
+                        }
+                    }
+                }
+            }
+        }
+        return count;
+    }
+    
+    static boolean isPerfectSquare(int n){
+        for(int i=1; i<n; i++){
+            if(i*i == n)
+                return true;
+        }
+        return false;
     }
 }
